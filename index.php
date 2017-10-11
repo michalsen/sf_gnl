@@ -5,12 +5,9 @@
  *  Oct 5/17
  */
 
-
 session_start();
 
-
 $api = [];
-
 
 require 'vendor/autoload.php';
 require '.config_dev';
@@ -25,42 +22,19 @@ use \GuzzleHttp\Exception\RequestException;
 use \GuzzleHttp\Psr7\Request;
 
 
-
-// GNL lead data
-$client = new GuzzleHttp\Client();
-$response = $client->request('GET', $api['url'] . $api['lead'], [
-  'headers' => [
-    'X-ApiToken' => $api['key'],
-    'Accept' => 'application/json',
-    'Content-type' => 'application/json'
-   ]]);
-
-$result = json_decode($response->getBody());
+include 'src/class.gnl.php';
+//include 'src/class.sf.php';
 
 
-// SF
-$client = $SFbuilder->build();
-
-try {
-  $fields = $client->describeSObjects(array('Lead'));
-} catch (Exception $e) {
-  print $e;
-}
-
-$var = $fields[0]->getFields()->toArray();
-
-$sfFields = [];
-
-foreach ($var as $key => $value) {
-  $sfFields[] = $value->getName();
-}
 
 
 Twig\init('templates');
 
 Route\get('/', F\puts(Twig\render('home.twig',
-                array('title' => 'SF Fields',
-                      'fields' => $sfFields)
+                array(
+                      //'title' => 'gnl',
+                      //'fields' => $result
+                      )
               )
             )
           );
