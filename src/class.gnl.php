@@ -10,4 +10,4 @@ $response = $client->request('GET', $api['url'] . $api['lead'], [
    ]]);
 
 $result = json_decode($response->getBody());
-var_dump($result);
+var_dump(get_object_vars($result->data));
