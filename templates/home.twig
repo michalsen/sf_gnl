@@ -1,0 +1,10 @@
+
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+  <h3>{{ title }}</h3>
+  {% for field in fields %}
+   {{ field }} <br>
+  {% endfor %}
+
+{% endblock %}
