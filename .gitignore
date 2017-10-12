@@ -1,5 +1,5 @@
 /vendor/
-.config*
+.config_dev
 .DS_Store
 /wsdl/
 /mapping/

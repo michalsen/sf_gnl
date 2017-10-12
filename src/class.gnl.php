@@ -9,10 +9,18 @@ $response = $client->request('GET', $api['url'] . $api['lead'], [
     'Content-type' => 'application/json'
    ]]);
 
-$result = json_decode($response->getBody());
-$lead = get_object_vars($result->data);
+$response = json_decode($response->getBody());
+$result = get_object_vars($response->data);
 
-foreach ($lead as $key => $value) {
+$lead = [];
+foreach ($result as $key => $value) {
   // Sometimes $value is an object....sometimes not
-  // print $key . "\n";
+  if (is_object($value)) {
+    foreach ($value as $okey => $ovalue) {
+      $lead[$okey] = $ovalue;
+    }
+  }
+   else {
+     $lead[$key] = $value;
+  }
 }

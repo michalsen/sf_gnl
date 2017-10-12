@@ -18,4 +18,4 @@ script:
   - php index.php
 
 after_script:
-- echo "Test!"
+- echo "fin."

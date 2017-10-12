@@ -1,0 +1,7 @@
+<?php
+
+
+$api['url'] = 'http://michalsengroup.com/api_test/';
+$api['key'] = 'test';
+$api['lead'] = 123456;
+
