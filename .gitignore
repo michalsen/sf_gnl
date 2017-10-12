@@ -1,4 +1,5 @@
 /vendor/
+.env*
 .config*
 .DS_Store
 /wsdl/

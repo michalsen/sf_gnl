@@ -12,11 +12,12 @@ $response = $client->request('GET', $api['url'] . $api['lead'], [
 $response = json_decode($response->getBody());
 $result = get_object_vars($response->data);
 
+
 $lead = [];
 foreach ($result as $key => $value) {
   // Sometimes $value is an object....sometimes not
   if (is_object($value)) {
-    foreach ($value as $okey => $ovalue) {
+    foreach ($value as $objectKey => $objectValue) {
       $lead[$objectKey] = $objectValue;
     }
   }
