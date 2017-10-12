@@ -10,4 +10,11 @@ $response = $client->request('GET', $api['url'] . $api['lead'], [
    ]]);
 
 $result = json_decode($response->getBody());
-var_dump(get_object_vars($result->data));
+$lead = get_object_vars($result->data);
+
+foreach ($lead as $key => $value) {
+  // Sometimes $value is an object....sometimes not
+  var_dump($key);
+  var_dump($value);
+  print '---------';
+}

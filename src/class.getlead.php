@@ -40,7 +40,6 @@ class GetLead {
            }
         }
     }
-
     return $keys;
   }
 

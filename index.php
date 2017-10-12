@@ -22,6 +22,7 @@ use \GuzzleHttp\Exception\RequestException;
 use \GuzzleHttp\Psr7\Request;
 
 
+$page = (isset($_SESSION['valid']) ? 'login.twig' : 'home.twig');
 
 /**
  *  Postback call
@@ -34,21 +35,21 @@ if (preg_match('/postback/', $_SERVER['REQUEST_URI'])) {
 }
 
 include 'src/class.gnl.php';
-//include 'src/class.sf.php';
+// include 'src/class.sf.php';
 
 
 
 
 Twig\init('templates');
 
-Route\get('/', F\puts(Twig\render('home.twig',
+Route\get('/', F\puts(Twig\render($page,
                 array(
-                      //'title' => 'gnl',
-                      //'fields' => $result
-                      )
+                      'title' => 'gnl',
+                      'fields' => $result
+                    )
+                  )
                 )
-              )
-            );
+              );
 
 
 
