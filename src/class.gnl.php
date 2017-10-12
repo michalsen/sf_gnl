@@ -14,7 +14,5 @@ $lead = get_object_vars($result->data);
 
 foreach ($lead as $key => $value) {
   // Sometimes $value is an object....sometimes not
-  var_dump($key);
-  var_dump($value);
-  print '---------';
+  // print $key . "\n";
 }

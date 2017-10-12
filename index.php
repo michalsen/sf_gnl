@@ -10,7 +10,7 @@ session_start();
 $api = [];
 
 require 'vendor/autoload.php';
-require_once '.config_dev';
+//require_once '.config_dev';
 
 
 
@@ -27,17 +27,16 @@ $page = (isset($_SESSION['valid']) ? 'login.twig' : 'home.twig');
 /**
  *  Postback call
  */
-if (preg_match('/postback/', $_SERVER['REQUEST_URI'])) {
-  if (isset($_POST['lead_id'])) {
-    $lead = $_POST['lead_id'];
-  }
+// if (preg_match('/postback/', $_SERVER['REQUEST_URI'])) {
+//   if (isset($_POST['lead_id'])) {
+//     $lead = $_POST['lead_id'];
+//   }
+// }
 
-}
-
-include 'src/class.gnl.php';
+// include 'src/class.gnl.php';
 // include 'src/class.sf.php';
 
-
+if (!isset($result)) $result = ['test 1', 'test 2'];
 
 
 Twig\init('templates');
