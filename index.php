@@ -36,7 +36,7 @@ $page = (isset($_SESSION['valid']) ? 'login.twig' : 'home.twig');
 // include 'src/class.gnl.php';
 // include 'src/class.sf.php';
 
-if (!isset($result)) $result = ['test 1', 'test 2'];
+if (!isset($lead)) $lead = ['test 1', 'test 2'];
 
 
 Twig\init('templates');
@@ -44,7 +44,7 @@ Twig\init('templates');
 Route\get('/', F\puts(Twig\render($page,
                 array(
                       'title' => 'gnl',
-                      'fields' => $result
+                      'fields' => $lead
                     )
                   )
                 )
