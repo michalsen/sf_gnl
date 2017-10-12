@@ -10,7 +10,7 @@ session_start();
 $api = [];
 
 require 'vendor/autoload.php';
-require '.config_dev';
+require_once '.config_dev';
 
 
 
@@ -21,6 +21,17 @@ use \Phpforce\SoapClient\Client;
 use \GuzzleHttp\Exception\RequestException;
 use \GuzzleHttp\Psr7\Request;
 
+
+
+/**
+ *  Postback call
+ */
+if (preg_match('/postback/', $_SERVER['REQUEST_URI'])) {
+  if (isset($_POST['lead_id'])) {
+    $lead = $_POST['lead_id'];
+  }
+
+}
 
 include 'src/class.gnl.php';
 //include 'src/class.sf.php';
@@ -35,9 +46,9 @@ Route\get('/', F\puts(Twig\render('home.twig',
                       //'title' => 'gnl',
                       //'fields' => $result
                       )
+                )
               )
-            )
-          );
+            );
 
 
 
