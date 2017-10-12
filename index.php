@@ -9,11 +9,12 @@ session_start();
 
 require 'vendor/autoload.php';
 
+$env = getenv('APP_ENV');
+print $env;
+die();
 
 $dotenv = new Dotenv\Dotenv(__DIR__);
 $dotenv->load();
-
-require_once 'config.php';
 
 use \Siler\Functional as F;
 use \Siler\Route;

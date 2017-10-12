@@ -18,7 +18,7 @@ script:
   - php index.php
 
 env:
-  - GNL_URL=http://michalsengroup.com/api_test/ GNL_KEY=test GNL_LEAD=123456
+  - APP_ENV=test GNL_URL=http://michalsengroup.com/api_test/ GNL_KEY=test GNL_LEAD=123456
 
 after_script:
 - echo "Test!"
