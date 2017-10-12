@@ -10,11 +10,12 @@ session_start();
 require 'vendor/autoload.php';
 
 $env = getenv('APP_ENV');
-print $env;
-die();
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
-$dotenv->load();
+
+if ($env !='test') {
+  $dotenv = new Dotenv\Dotenv(__DIR__);
+  $dotenv->load();
+}
 
 use \Siler\Functional as F;
 use \Siler\Route;
