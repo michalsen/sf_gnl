@@ -11,6 +11,10 @@ branches:
 notifications:
   email: false
 
+before_script:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+
 script:
   - php index.php
 
