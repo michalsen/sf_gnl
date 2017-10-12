@@ -17,7 +17,7 @@ foreach ($result as $key => $value) {
   // Sometimes $value is an object....sometimes not
   if (is_object($value)) {
     foreach ($value as $okey => $ovalue) {
-      $lead[$okey] = $ovalue;
+      $lead[$objectKey] = $objectValue;
     }
   }
    else {
