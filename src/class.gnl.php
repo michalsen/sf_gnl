@@ -2,9 +2,9 @@
 
 // GNL lead data
 $client = new GuzzleHttp\Client();
-$response = $client->request('GET', $api['url'] . $api['lead'], [
+$response = $client->request('GET', getenv('GNL_URL') . getenv('GNL_LEAD'), [
   'headers' => [
-    'X-ApiToken' => $api['key'],
+    'X-ApiToken' => getenv('GNL_KEY'),
     'Accept' => 'application/json',
     'Content-type' => 'application/json'
    ]]);
